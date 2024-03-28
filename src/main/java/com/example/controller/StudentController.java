@@ -19,8 +19,13 @@ public class StudentController {
     }
 
     @GetMapping("/all")
-    public List<Student> findAllStudents() {
-        return studentService.getAllStudent();
+    public ResponseEntity<List<Student>> findAllStudents() {
+        List<Student> students = studentService.getAllStudent();
+        if (students == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(studentService.getAllStudent(), HttpStatus.OK);
+        }
     }
 
     @PostMapping("/create")
