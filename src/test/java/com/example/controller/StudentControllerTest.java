@@ -81,7 +81,7 @@ class StudentControllerTest {
         ResponseEntity<List<Student>> returnValue = studentController.findAllStudents();
 
         //THEN
-        assertThat(returnValue.getBody()).isNotNull().hasSize(3);
+        assertThat(returnValue.getBody()).isNotNull().hasSize(4);
         assertThat(returnValue.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 
